@@ -17,7 +17,6 @@ stop_running_containers () {
 	local -a ARRAY=()
 	local ARRAY_LENGTH=0
 	local ITERATOR=0
-	local ELEMENT=''
 
 	if [ "x${RUNNING_CONTAINERS}" = 'x' ] ; then
 		echo 'No currently running container(s)'
@@ -55,7 +54,6 @@ remove_exited_containers () {
 	local -a ARRAY=()
 	local ARRAY_LENGTH=0
 	local ITERATOR=0
-	local ELEMENT=''
 
 	if [ "x${EXITED_CONTAINERS}" = 'x' ] ; then
 		echo 'No exited container(s)'
@@ -92,7 +90,6 @@ remove_docker_images () {
 	local -a ARRAY=()
 	local ARRAY_LENGTH=0
 	local ITERATOR=0
-	local ELEMENT=''
 
 	if [ "x${DOCKER_IMAGES}" = 'x' ] ; then
 		echo 'No docker image(s)'
@@ -102,7 +99,7 @@ remove_docker_images () {
 		# Following commented block of code is from a first draft,
 		# and was not kept due to security issues it can engender
 		#for ELEMENT in ${DOCKER_IMAGES} ; do
-		#	aux_remove_docker_images "${ARRAY[${ITERATOR}]}"
+		#	aux_remove_docker_images "${ELEMENT}"
 		#done
 		while IFS= read -r LINE
 		do
@@ -134,7 +131,6 @@ remove_docker_volumes () {
 	local -a ARRAY=()
 	local ARRAY_LENGTH=0
 	local ITERATOR=0
-	local ELEMENT=''
 
 	if [ "x${DOCKER_VOLUMES}" = 'x' ] ; then
 		echo 'No docker volume(s)'
@@ -157,7 +153,7 @@ remove_docker_volumes () {
 
 main () {
 	echo "To fast clear your docker environnement from its containers, images and volumes, run this script the following way: \`yes | ${0}\`"
-	echo 'If you deployed a docker constellation from docker-compose, make sure you executed `docker-compose down` before running this script'
+	echo 'If you deployed a docker constellation through docker-compose, make sure you executed `docker-compose down` before running this script'
 	stop_running_containers
 	remove_exited_containers
 	remove_docker_images
