@@ -1,0 +1,3 @@
+
+Configuration du gestionnaire d'amorcage Grub : voir /etc/default/grub
+
