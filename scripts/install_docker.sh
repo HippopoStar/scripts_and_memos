@@ -17,13 +17,13 @@ get_convenience_script () {
 			sudo apt-get update && sudo apt-get install -y curl
 		fi
 	fi
-	curl -o ${DOCKER_CONVENIENCE_SCRIPT} https://get.docker.com/
+	curl -o "${DOCKER_CONVENIENCE_SCRIPT}" https://get.docker.com/
 }
 
 aux_install_docker () {
 	local READ_ANSWER=''
 
-	if [ -e ${DOCKER_CONVENIENCE_SCRIPT} -a -f ${DOCKER_CONVENIENCE_SCRIPT} ] ; then
+	if [ -e "${DOCKER_CONVENIENCE_SCRIPT}" -a -f "${DOCKER_CONVENIENCE_SCRIPT}" ] ; then
 		read -n 2 -p "File ${DOCKER_CONVENIENCE_SCRIPT} already exists, do you want to replace it? [y/n] " READ_ANSWER
 		if [ "x${READ_ANSWER}" = 'xy' ] ; then
 			get_convenience_script
@@ -31,8 +31,8 @@ aux_install_docker () {
 	else
 		get_convenience_script
 	fi
-	sudo sh ${DOCKER_CONVENIENCE_SCRIPT}
-	sudo adduser --group docker ${USER_NAME}
+	sudo sh "${DOCKER_CONVENIENCE_SCRIPT}"
+	sudo usermod --append --groups docker "${USER_NAME}"
 }
 
 install_docker () {
