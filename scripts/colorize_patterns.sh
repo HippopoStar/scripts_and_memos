@@ -1,16 +1,28 @@
 #!/bin/bash
 
-COLOR_BLACK='\033[30m'
-COLOR_RED='\033[31m'
-COLOR_GREEN='\033[32m'
-COLOR_YELLOW='\033[33m'
-COLOR_BLUE='\033[34m'
-COLOR_MAGENTA='\033[35m'
-COLOR_CYAN='\033[36m'
-COLOR_WHITE='\033[37m'
+COLOR_CODE_BLACK='\033[30m'
+COLOR_CODE_RED='\033[31m'
+COLOR_CODE_GREEN='\033[32m'
+COLOR_CODE_YELLOW='\033[33m'
+COLOR_CODE_BLUE='\033[34m'
+COLOR_CODE_MAGENTA='\033[35m'
+COLOR_CODE_CYAN='\033[36m'
+COLOR_CODE_WHITE='\033[37m'
 
-COLOR_BRIGHT='\033[01m'
-EOC='\033[00m'
+COLOR_CODE_BRIGHT='\033[01m'
+COLOR_CODE_RESET='\033[00m'
+
+COLOR_BLACK="$(echo -e "${COLOR_CODE_BLACK}")"
+COLOR_RED="$(echo -e "${COLOR_CODE_RED}")"
+COLOR_GREEN="$(echo -e "${COLOR_CODE_GREEN}")"
+COLOR_YELLOW="$(echo -e "${COLOR_CODE_YELLOW}")"
+COLOR_BLUE="$(echo -e "${COLOR_CODE_BLUE}")"
+COLOR_MAGENTA="$(echo -e "${COLOR_CODE_MAGENTA}")"
+COLOR_CYAN="$(echo -e "${COLOR_CODE_CYAN}")"
+COLOR_WHITE="$(echo -e "${COLOR_CODE_WHITE}")"
+
+COLOR_BRIGHT="$(echo -e "${COLOR_CODE_BRIGHT}")"
+EOC="$(echo -e "${COLOR_CODE_RESET}")"
 
 usage () {
 	local OUTPUT_FILENAME="`echo "$(echo "${0}" | xargs basename | sed 's/\.sh$/\.output/')"`"
@@ -27,7 +39,7 @@ or (slightly slower) \`$(echo -e "${COLOR_BRIGHT}")cat <file> | ${0} <parameters
 In its current state, this script performs slowly
 Consider running \`$(echo -e "${COLOR_BRIGHT}")${0} <parameters> &> ${OUTPUT_FILENAME} && less --LINE-NUMBERS --RAW-CONTROL-CHARS ${OUTPUT_FILENAME}$(echo -e "${EOC}")\`
 Known issue(s):
-An artefact will appear on each line matching a pattern and containing a trailing '\' character, and color will not be correctly reset afterwise
+An artefact will appear on each line matching a pattern and containing a trailing '\' character, and color will not be correctly reset afterwise (solved)
 To tackle this, there are, according to your needs, at least 2 ways, both involving editing this script:
 - remove the '-r' option passed to the 'read' builtin command (may impact formatting)
 - add a space before '\${EOC}' sequence whilst outputting each pattern matching line
@@ -46,7 +58,7 @@ aux_colorize_patterns () {
 	if [ ${#} -eq 3 ]
 	then
 		LINE_HIGHLIGHTED="$(echo "${LINE}" | sed 's/'"${PATTERN}"'/'"\\${COLOR_BRIGHT}${PATTERN}\\${EOC}\\${COLOR}"'/g')"
-		echo -e "${COLOR}${LINE_HIGHLIGHTED}${EOC}"
+		echo "${COLOR}${LINE_HIGHLIGHTED}${EOC}"
 	fi
 }
 
