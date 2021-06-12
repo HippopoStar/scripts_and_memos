@@ -15,17 +15,26 @@ EOC='\033[00m'
 usage () {
 	local OUTPUT_FILENAME="`echo "$(echo "${0}" | xargs basename | sed 's/\.sh$/\.output/')"`"
 
-	echo "${0} [-r|-red <pattern>] [-g|-green <pattern>] [-y|-yellow <pattern>]"
-	echo -e "\t[-b|-blue <pattern>] [-m|-magenta <pattern>] [-c|-cyan <pattern>]"
-	echo -e "\t[-black <pattern>] [-w|-white <pattern>]"
+	# Note: care to properly escape \" characters while using here documents
+	cat <<EOF
+${0} [-r|-red <pattern>] [-g|-green <pattern>] [-y|-yellow <pattern>]
+	[-b|-blue <pattern>] [-m|-magenta <pattern>] [-c|-cyan <pattern>]
+	[-black <pattern>] [-w|-white <pattern>]
 
-	echo 'Reads on standard input'
-	echo -e "To use with a file, run \`${COLOR_BRIGHT}${0} <parameters> < <file>${EOC}\`"
-	echo -e "or (slightly slower) \`${COLOR_BRIGHT}cat <file> | ${0} <parameters>${EOC}\`"
-	echo 'In its current state, this script performs slowly'
-	echo -e "Consider running \`${COLOR_BRIGHT}${0} <parameters> &> ${OUTPUT_FILENAME} && less --LINE-NUMBERS --RAW-CONTROL-CHARS ${OUTPUT_FILENAME}${EOC}\`"
-	echo 'Known issue(s):'
-	echo 'An artefact will appear on each line matching a pattern and ending with a "\" character, and color will not be correctly reset afterwise'
+Reads on standard input
+To use with a file, run \`$(echo -e "${COLOR_BRIGHT}")${0} <parameters> < <file>$(echo -e "${EOC}")\`
+or (slightly slower) \`$(echo -e "${COLOR_BRIGHT}")cat <file> | ${0} <parameters>$(echo -e "${EOC}")\`
+In its current state, this script performs slowly
+Consider running \`$(echo -e "${COLOR_BRIGHT}")${0} <parameters> &> ${OUTPUT_FILENAME} && less --LINE-NUMBERS --RAW-CONTROL-CHARS ${OUTPUT_FILENAME}$(echo -e "${EOC}")\`
+Known issue(s):
+An artefact will appear on each line matching a pattern and containing a trailing '\' character, and color will not be correctly reset afterwise
+To tackle this, there are, according to your needs, at least 2 ways, both involving editing this script:
+- remove the '-r' option passed to the 'read' builtin command (may impact formatting)
+- add a space before '\${EOC}' sequence whilst outputting each pattern matching line
+
+As an example, in an experimental purpose, you might try running:
+\`$(echo -e "${COLOR_BRIGHT}")${0} -black 'BLACK' -r 'RED' -g 'GREEN' -y 'YELLOW' -b 'BLUE' -m 'MAGENTA' -c 'CYAN' -w 'WHITE' < ${0}$(echo -e "${EOC}")\`
+EOF
 }
 
 aux_colorize_patterns () {
