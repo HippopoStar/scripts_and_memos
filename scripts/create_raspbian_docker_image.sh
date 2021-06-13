@@ -7,6 +7,8 @@
 # https://hub.docker.com/layers/mongo/library/mongo/bionic/images/sha256-c740f5fce802628d8837ad78d443dda66eecc3db7e8143943c5494a86fe57d7c?context=explore
 # https://github.com/docker-library/mongo/blob/master/4.4/Dockerfile
 
+# If you intend to use 'bash' as an interpretor instead of 'sh',
+# consider adding '-e' option to the 'echo' commands in the following lines
 COLOR_BRIGHT="$(echo "\033[01m")"
 EOC="$(echo "\033[00m")"
 
@@ -28,9 +30,9 @@ main () {
 
 	# Voir https://www.raspberrypi.org/software/operating-systems/#raspberry-pi-os-32-bit
 	# Section 'Raspberry Pi OS Lite'
-	if [ ! \( -e ~/"${HOME_DOWNLOADS_DIRECTORY}" -a -d ~/"${HOME_DOWNLOADS_DIRECTORY}" \) ]
+	if [ ! \( -e ~/"${HOME_DOWNLOADS_DIRECTORY_NAME}" -a -d ~/"${HOME_DOWNLOADS_DIRECTORY_NAME}" \) ]
 	then
-		echo "Error: directory \"~/${HOME_DOWNLOADS_DIRECTORY}\" seems not to exist"
+		echo "Error: directory \"~/${HOME_DOWNLOADS_DIRECTORY_NAME}\" seems not to exist"
 		exit 0
 	fi
 	if [ -e "${TEMPORARY_DIRECTORY}" -a -d "${TEMPORARY_DIRECTORY}" ]
