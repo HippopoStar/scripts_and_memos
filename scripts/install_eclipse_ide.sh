@@ -32,7 +32,7 @@ StartupNotify=true
 EOF
 	sudo mv "${TEMPORARY_DIRECTORY}/eclipse.desktop" '/usr/share/applications/'
 	curl -o "${TEMPORARY_DIRECTORY}/${ECLIPSE_VECTORIAL_IMAGE_ARCHIVE_NAME}.zip" "https://www.eclipse.org/org/artwork/zip_files/${ECLIPSE_VECTORIAL_IMAGE_ARCHIVE_NAME}.zip"
-	unzip "${TEMPORARY_DIRECTORY}/${ECLIPSE_VECTORIAL_IMAGE_ARCHIVE_NAME}.zip"
+	unzip "${TEMPORARY_DIRECTORY}/${ECLIPSE_VECTORIAL_IMAGE_ARCHIVE_NAME}.zip" -d "${TEMPORARY_DIRECTORY}"
 	sudo cp "${TEMPORARY_DIRECTORY}/${ECLIPSE_VECTORIAL_IMAGE_ARCHIVE_NAME}/Eclipse2014_RGB.svg" '/usr/share/icons/hicolor/scalable/apps/eclipse.svg'
 	sudo cp "${TEMPORARY_DIRECTORY}/${ECLIPSE_VECTORIAL_IMAGE_ARCHIVE_NAME}/Eclipse2014_RGB.svg" '/usr/share/icons/hicolor/symbolic/apps/eclipse-symbolic.svg'
 	sudo apt-get update && sudo apt-get install imagemagick

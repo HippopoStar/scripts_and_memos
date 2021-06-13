@@ -34,10 +34,10 @@ ${0} [-r|-red <pattern>] [-g|-green <pattern>] [-y|-yellow <pattern>]
 	[-black <pattern>] [-w|-white <pattern>]
 
 Reads on standard input
-To use with a file, run \`$(echo -e "${COLOR_BRIGHT}")${0} <parameters> < <file>$(echo -e "${EOC}")\`
-or (slightly slower) \`$(echo -e "${COLOR_BRIGHT}")cat <file> | ${0} <parameters>$(echo -e "${EOC}")\`
+To use with a file, run \`$(echo -e "${COLOR_CODE_BRIGHT}")${0} <parameters> < <file>$(echo -e "${COLOR_CODE_RESET}")\`
+or (slightly slower) \`$(echo -e "${COLOR_CODE_BRIGHT}")cat <file> | ${0} <parameters>$(echo -e "${COLOR_CODE_RESET}")\`
 In its current state, this script performs slowly
-Consider running \`$(echo -e "${COLOR_BRIGHT}")${0} <parameters> &> ${OUTPUT_FILENAME} && less --LINE-NUMBERS --RAW-CONTROL-CHARS ${OUTPUT_FILENAME}$(echo -e "${EOC}")\`
+Consider running \`$(echo -e "${COLOR_CODE_BRIGHT}")${0} <parameters> &> ${OUTPUT_FILENAME} && less --LINE-NUMBERS --RAW-CONTROL-CHARS ${OUTPUT_FILENAME}$(echo -e "${COLOR_CODE_RESET}")\`
 Known issue(s):
 An artefact will appear on each line matching a pattern and containing a trailing '\' character, and color will not be correctly reset afterwise (solved)
 To tackle this, there are, according to your needs, at least 2 ways, both involving editing this script:
@@ -45,7 +45,7 @@ To tackle this, there are, according to your needs, at least 2 ways, both involv
 - add a space before '\${EOC}' sequence whilst outputting each pattern matching line
 
 As an example, in an experimental purpose, you might try running:
-\`$(echo -e "${COLOR_BRIGHT}")${0} -black 'BLACK' -r 'RED' -g 'GREEN' -y 'YELLOW' -b 'BLUE' -m 'MAGENTA' -c 'CYAN' -w 'WHITE' < ${0}$(echo -e "${EOC}")\`
+\`$(echo -e "${COLOR_CODE_BRIGHT}")${0} -black 'BLACK' -r 'RED' -g 'GREEN' -y 'YELLOW' -b 'BLUE' -m 'MAGENTA' -c 'CYAN' -w 'WHITE' < ${0}$(echo -e "${COLOR_CODE_RESET}")\`
 EOF
 }
 
