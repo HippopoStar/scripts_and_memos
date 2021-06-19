@@ -25,7 +25,7 @@ COLOR_BRIGHT="$(echo -e "${COLOR_CODE_BRIGHT}")"
 EOC="$(echo -e "${COLOR_CODE_RESET}")"
 
 usage () {
-	local OUTPUT_FILENAME="`echo "$(echo "${0}" | xargs basename | sed 's/\.sh$/\.output/')"`"
+	local OUTPUT_FILENAME="`echo "$(echo "${0}" | xargs -0 basename | sed 's/\.sh$/\.output/')"`"
 
 	# Note: care to properly escape \" characters while using here documents
 	cat <<EOF
@@ -50,15 +50,14 @@ EOF
 }
 
 aux_colorize_patterns () {
-	local LINE_HIGHLIGHTED=''
 	local LINE="${1}"
 	local COLOR="${2}"
 	local PATTERN="${3}"
 
 	if [ ${#} -eq 3 ]
 	then
-		LINE_HIGHLIGHTED="$(echo "${LINE}" | sed 's/'"${PATTERN}"'/'"\\${COLOR_BRIGHT}${PATTERN}\\${EOC}\\${COLOR}"'/g')"
-		echo "${COLOR}${LINE_HIGHLIGHTED}${EOC}"
+		echo "${LINE}" \
+			| awk '{ gsub(/'"${PATTERN}"'/,"'"${EOC}${COLOR_BRIGHT}${COLOR}"'&'"${EOC}${COLOR}"'"); print "'"${COLOR}"'" $0 "'"${EOC}"'" }'
 	fi
 }
 
@@ -67,43 +66,35 @@ colorize_patterns () {
 
 	while IFS= read -r LINE
 	do
-		if [ ! \( "x${PATTERN_BLACK}" = 'x' \
-			-o "x`echo "${LINE}" | grep -e "${PATTERN_BLACK}"`" = 'x' \) ]
+		if ( ! [ "x${PATTERN_BLACK}" = 'x' ] && [[ "${LINE}" =~ ${PATTERN_BLACK} ]] )
 		then
 			aux_colorize_patterns "${LINE}" "${COLOR_BLACK}" "${PATTERN_BLACK}"
 
-		elif [ ! \( "x${PATTERN_RED}" = 'x' \
-			-o "x`echo "${LINE}" | grep -e "${PATTERN_RED}"`" = 'x' \) ]
+		elif ( ! [ "x${PATTERN_RED}" = 'x' ] && [[ "${LINE}" =~ ${PATTERN_RED} ]] )
 		then
 			aux_colorize_patterns "${LINE}" "${COLOR_RED}" "${PATTERN_RED}"
 
-		elif [ ! \( "x${PATTERN_GREEN}" = 'x' \
-			-o "x`echo "${LINE}" | grep -e "${PATTERN_GREEN}"`" = 'x' \) ]
+		elif ( ! [ "x${PATTERN_GREEN}" = 'x' ] && [[ "${LINE}" =~ ${PATTERN_GREEN} ]] )
 		then
 			aux_colorize_patterns "${LINE}" "${COLOR_GREEN}" "${PATTERN_GREEN}"
 
-		elif [ ! \( "x${PATTERN_YELLOW}" = 'x' \
-			-o "x`echo "${LINE}" | grep -e "${PATTERN_YELLOW}"`" = 'x' \) ]
+		elif ( ! [ "x${PATTERN_YELLOW}" = 'x' ] && [[ "${LINE}" =~ ${PATTERN_YELLOW} ]] )
 		then
 			aux_colorize_patterns "${LINE}" "${COLOR_YELLOW}" "${PATTERN_YELLOW}"
 
-		elif [ ! \( "x${PATTERN_BLUE}" = 'x' \
-			-o "x`echo "${LINE}" | grep -e "${PATTERN_BLUE}"`" = 'x' \) ]
+		elif ( ! [ "x${PATTERN_BLUE}" = 'x' ] && [[ "${LINE}" =~ ${PATTERN_BLUE} ]] )
 		then
 			aux_colorize_patterns "${LINE}" "${COLOR_BLUE}" "${PATTERN_BLUE}"
 
-		elif [ ! \( "x${PATTERN_MAGENTA}" = 'x' \
-			-o "x`echo "${LINE}" | grep -e "${PATTERN_MAGENTA}"`" = 'x' \) ]
+		elif ( ! [ "x${PATTERN_MAGENTA}" = 'x' ] && [[ "${LINE}" =~ ${PATTERN_MAGENTA} ]] )
 		then
 			aux_colorize_patterns "${LINE}" "${COLOR_MAGENTA}" "${PATTERN_MAGENTA}"
 
-		elif [ ! \( "x${PATTERN_CYAN}" = 'x' \
-			-o "x`echo "${LINE}" | grep -e "${PATTERN_CYAN}"`" = 'x' \) ]
+		elif ( ! [ "x${PATTERN_CYAN}" = 'x' ] && [[ "${LINE}" =~ ${PATTERN_CYAN} ]] )
 		then
 			aux_colorize_patterns "${LINE}" "${COLOR_CYAN}" "${PATTERN_CYAN}"
 
-		elif [ ! \( "x${PATTERN_WHITE}" = 'x' \
-			-o "x`echo "${LINE}" | grep -e "${PATTERN_WHITE}"`" = 'x' \) ]
+		elif ( ! [ "x${PATTERN_WHITE}" = 'x' ] && [[ "${LINE}" =~ ${PATTERN_WHITE} ]] )
 		then
 			aux_colorize_patterns "${LINE}" "${COLOR_WHITE}" "${PATTERN_WHITE}"
 
@@ -175,5 +166,5 @@ main () {
 	colorize_patterns
 }
 
-main ${@}
+main "${@}"
 
