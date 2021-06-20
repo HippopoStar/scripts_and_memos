@@ -1,0 +1,11 @@
+
+# Getting information about Memory usage, CPU usage & temperature, etc
+lm-sensors
+# On Ubuntu:
+# - command-line
+landscape-sysinfo
+# - graphical, Unity as Desktop Environnement
+indicator-multiload
+# Graphically, independent of Desktop Environnement
+psensor
+
