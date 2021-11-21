@@ -1,4 +1,7 @@
 
+# Adjust screen temperature based on the position of the sun
+redshift
+
 # Getting information about Memory usage, CPU usage & temperature, etc
 lm-sensors
 # On Ubuntu:
@@ -8,4 +11,10 @@ landscape-sysinfo
 indicator-multiload
 # Graphically, independent of Desktop Environnement
 psensor
+
+# Git Graphical User Interface
+git-gui
+
+# Display dialog boxes from shell scripts
+dialog
 
