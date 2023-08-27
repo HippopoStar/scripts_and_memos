@@ -11,7 +11,7 @@
 
 ## Dockerfile(s)
 [Docker Docs - Reference - Dockerfile reference](https://docs.docker.com/engine/reference/builder/)  
-[Docker Docs - Guides - Develop with Docker - Dockerfile best practices](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)  
+[Docker Docs - Guides - Develop with Docker - Dockerfile best practices - Understand build context](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#understand-build-context)  
 
 ## docker-compose
 [Docker Docs - Reference - Command-line reference - Docker CLI - docker compose](https://docs.docker.com/compose/reference/)  
