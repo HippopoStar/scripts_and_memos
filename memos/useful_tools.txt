@@ -1,6 +1,7 @@
 
 # Adjust screen temperature based on the position of the sun
-redshift
+redshift-gtk
+[ArchWiki - Redshift](https://wiki.archlinux.org/title/Redshift)
 
 # Getting information about Memory usage, CPU usage & temperature, etc
 lm-sensors
