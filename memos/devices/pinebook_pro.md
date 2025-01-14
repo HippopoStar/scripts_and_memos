@@ -49,8 +49,8 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ## Redshift
 [RedShift](https://wiki.archlinux.org/title/Redshift)  
 ```
-curl -C - -L -O --output-dir ~/.config/ \
-  https://raw.githubusercontent.com/HippopoStar/scripts_and_memos/refs/heads/main/dotfiles/redshift.conf
+curl -C - -L --output-dir ~/.config -O \
+  https://raw.githubusercontent.com/HippopoStar/scripts_and_memos/refs/heads/main/dotfiles/redshift/redshift.conf
 
 systemctl --user enable redshift-gtk
 ```

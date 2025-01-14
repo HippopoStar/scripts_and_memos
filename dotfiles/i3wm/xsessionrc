@@ -1,0 +1,16 @@
+
+set_background_picture () {
+	local L_BG_PIC="$( find "${HOME}" -maxdepth 2 -a \( -path "${HOME}/Pictures/*" -o -path "${HOME}/Images/*" \) -a -name 'background.[pj][np]g' -print | head -n 1 )"
+
+	#echo "L_BG_PIC: '${L_BG_PIC}'" >&2
+
+	if [ -n "$( which 'feh' )" -a -n "${L_BG_PIC}" ]
+	then
+		feh --bg-fill "${L_BG_PIC}"
+	fi
+}
+
+set_background_picture
+
+# watch -n 1200 feh --randomize –bg-fill ~/Pictures/* &
+

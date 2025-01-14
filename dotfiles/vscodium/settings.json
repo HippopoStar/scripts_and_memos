@@ -1,0 +1,63 @@
+{
+	"editor.autoSurround": "never",
+	"editor.bracketPairColorization.enabled": false,
+	"editor.dragAndDrop": false,
+	"editor.emptySelectionClipboard": false,
+	"editor.experimentalWhitespaceRendering": "off",
+	"editor.hover.enabled": false,
+	"editor.inlayHints.enabled": "offUnlessPressed",
+	"editor.insertSpaces": false,
+	"editor.lightbulb.enabled": "off",
+	"editor.lineHeight": 1.5,
+	"editor.renderWhitespace": "boundary",
+	"editor.rulers": [
+		80
+	],
+	"editor.semanticTokenColorCustomizations": {
+		"[Default Light Modern][Solarized Light]": {
+			"rules": {
+				"method.static": {
+					"fontStyle": ""
+				}
+			}
+		}
+	},
+	"editor.stickyScroll.enabled": false,
+	"editor.tokenColorCustomizations": {
+		"[Default Light Modern][Solarized Light]": {
+			"keywords": {
+				"fontStyle": ""
+			},
+			"textMateRules": [
+				{
+					"scope": "punctuation",
+					"settings": {
+						"fontStyle": ""
+					}
+				},
+				{
+					"scope": [
+						"storage.modifier"
+					],
+					"settings": {
+						"fontStyle": "bold"
+					}
+				}
+			]
+		}
+	},
+	"editor.useTabStops": false,
+	"editor.fontFamily": "'FreeMono', 'monospace'",
+	"editor.fontSize": 18,
+	"editor.minimap.showSlider": "always",
+	"editor.acceptSuggestionOnCommitCharacter": false,
+	"editor.acceptSuggestionOnEnter": "off",
+	"workbench.colorTheme": "Solarized Light",
+	"workbench.colorCustomizations": {
+		"[Default Light Modern]": {
+			"editor.lineHighlightBackground": "#ADD6FF80",
+			"minimap.background": "#EBE3D5",
+			"scrollbar.shadow": "#FFFFFF"
+		}
+	}
+}

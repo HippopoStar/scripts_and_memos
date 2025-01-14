@@ -1,0 +1,32 @@
+
+! ls /etc/X11/cursors/
+! xdg-open /usr/share/icons &
+! xdg-open /usr/share/pixmaps &
+
+! Xcursor.theme: default
+! Xcursor.theme: Adwaita
+
+! apt-cache show xcursor-themes
+! Xcursor.theme: handhelds
+! Xcursor.theme: redglass
+! Xcursor.theme: whiteglass
+
+! apt-cache show chameleon-cursor-theme
+! Xcursor.theme: Chameleon-Anthracite-Regular
+! Xcursor.theme: Chameleon-DarkSkyBlue-Regular
+! Xcursor.theme: Chameleon-Mint-Regular
+! Xcursor.theme: Chameleon-Pearl-Regular
+! Xcursor.theme: Chameleon-Purple-Regular
+! Xcursor.theme: Chameleon-SkyBlue-Regular
+! Xcursor.theme: Chameleon-White-Regular
+
+! apt-cache show dmz-cursor-theme
+! Xcursor.theme: DMZ-White
+! Xcursor.theme: DMZ-Black
+
+! apt-cache show breeze-cursor-theme
+! Xcursor.theme: breeze_cursors
+Xcursor.theme: Breeze_Snow
+
+Xcursor.size: 36
+
