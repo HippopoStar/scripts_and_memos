@@ -18,37 +18,10 @@ on_exit () {
 		# notify-send (libnotify-bin)
 		i3-nagbar -t warning -m "${0} exit status: ${EXIT_STATUS}"
 	fi
+
+	exit ${EXIT_STATUS}
 }
 
-# $> man bash
-#
-# RESERVED WORDS
-#     [...]
-# PARAMETERS
-#   [...]
-#   Special Parameters
-#     [...]
-#     $       Expands to the process ID of the shell.  In a () subshell, it expands to the process ID of the current shell, not the subshell.
-# COMMAND EXECUTION
-#     [...]
-# SHELL BUILTIN COMMANDS
-#     [...]
-#     builtin shell-builtin [arguments]
-#             Execute the specified shell builtin, passing it arguments, and return its exit status.
-#             This is useful when defining a function whose name is the same as a shell builtin, retaining the functionality of the builtin within the function.
-#             The cd builtin is commonly redefined this way.
-#             The return status is false if shell-builtin is not a shell builtin command.
-#     [...]
-#     kill [-s sigspec | -n signum | -sigspec] [pid | jobspec] ...
-#     kill -l|-L [sigspec | exit_status]
-#             Send the signal named by sigspec or signum to the processes named by pid or jobspec.
-#             sigspec is either a case-insensitive signal name such as SIGKILL (with or without the SIG prefix) or a signal number; signum is a signal number.
-#             If sigspec is not present, then SIGTERM is assumed.
-#             An argument of -l lists the signal names.
-#             If any arguments are supplied when -l is given, the names of the signals corresponding to the arguments are listed, and the return status is 0.
-#             The exit_status argument to -l is a number specifying either a signal number or the exit status of a process terminated by a signal.
-#             The -L option is equivalent to -l.
-#             kill returns true if at least one signal was successfully sent, or false if an error occurs or an invalid option is encountered.
 PATH=$(/usr/bin/getconf PATH || /bin/kill $$)
 
 # ← (2190)
@@ -290,7 +263,9 @@ update_pulse_audio_default_source_status () {
 }
 
 i3status | (
+	# Forward the 3 starting lines as is
 	read line && echo "$line" && read line && echo "$line" && read line && echo "$line"
+	# Prepend the following lines with custom content
 	while :
 	do
 		read line
@@ -305,10 +280,28 @@ i3status | (
 		append_to_custom_prefix "${G_WHO}"
 		append_to_custom_prefix "${G_EARTH_EMOTICON}"
 		append_to_custom_prefix "${G_PULSE_AUDIO_DEFAULT_SOURCE_STATUS}"
-		echo "${G_I3_SHORTCUTS}" >&2
-		echo "${G_CUSTOM_PREFIX}" >&2
-		echo "${line}" >&2
-		echo ',[{"full_text":"'"${G_HOTKEYS_MEMO}"'","align":"left","min_width":500,"separator":false,"separator_block_width":50},{"full_text":"'"${G_CUSTOM_PREFIX}"'","separator":true},'"${line#,\[}" || exit 1
+		#echo "${G_HOTKEYS_MEMO}" >&2
+		#echo "${G_CUSTOM_PREFIX}" >&2
+		#echo "${line}" >&2
+		echo ',[{"full_text":"'"${G_HOTKEYS_MEMO}"'","align":"left","min_width":500,"separator":false,"separator_block_width":50},{"full_text":"'"${G_CUSTOM_PREFIX}"'","separator":true},'"${line#,\[}"
+
+		#echo -n ','
+		#cat <<-_EOF | jq --compact-output --monochrome-output
+		#	[
+		#		{
+		#			"full_text": "${G_HOTKEYS_MEMO}",
+		#			"align": "left",
+		#			"min_width": 500,
+		#			"separator": false,
+		#			"separator_block_width": 50
+		#		},
+		#		{
+		#			"full_text": "${G_CUSTOM_PREFIX}",
+		#			"separator": true
+		#		},
+		#		${line#,\[}
+		#
+		#_EOF
 	done
 )
 
