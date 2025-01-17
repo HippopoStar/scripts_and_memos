@@ -2,38 +2,43 @@
 ===== BOURNE SHELL  
 ===== ===== ===== ===== =====  
 
-`dialog`: A tool to display dialog boxes from shell scripts  
+## dialog
+[Debian Manpages - Wheezy - dialog - #whiptail](https://manpages.debian.org/wheezy/dialog/dialog.1.en.html#WHIPTAIL)  
 
+## notify-send
+[Debian Manpages - Wheezy - notify-send](https://manpages.debian.org/wheezy/libnotify-bin/notify-send.1.en.html)  
+
+## getconf
+[Debian Manpages - Wheezy - getconf](https://manpages.debian.org/wheezy/libc-bin/getconf.1.en.html)  
+[Debian Manpages - Wheezy - sh - #Special Parameters](https://manpages.debian.org/wheezy/dash/sh.1.en.html#Special_Parameters)  
 ```
-# $> man bash
-#
-# RESERVED WORDS
-#     [...]
-# PARAMETERS
-#   [...]
-#   Special Parameters
-#     [...]
-#     $       Expands to the process ID of the shell.  In a () subshell, it expands to the process ID of the current shell, not the subshell.
-# COMMAND EXECUTION
-#     [...]
-# SHELL BUILTIN COMMANDS
-#     [...]
-#     builtin shell-builtin [arguments]
-#             Execute the specified shell builtin, passing it arguments, and return its exit status.
-#             This is useful when defining a function whose name is the same as a shell builtin, retaining the functionality of the builtin within the function.
-#             The cd builtin is commonly redefined this way.
-#             The return status is false if shell-builtin is not a shell builtin command.
-#     [...]
-#     kill [-s sigspec | -n signum | -sigspec] [pid | jobspec] ...
-#     kill -l|-L [sigspec | exit_status]
-#             Send the signal named by sigspec or signum to the processes named by pid or jobspec.
-#             sigspec is either a case-insensitive signal name such as SIGKILL (with or without the SIG prefix) or a signal number; signum is a signal number.
-#             If sigspec is not present, then SIGTERM is assumed.
-#             An argument of -l lists the signal names.
-#             If any arguments are supplied when -l is given, the names of the signals corresponding to the arguments are listed, and the return status is 0.
-#             The exit_status argument to -l is a number specifying either a signal number or the exit status of a process terminated by a signal.
-#             The -L option is equivalent to -l.
-#             kill returns true if at least one signal was successfully sent, or false if an error occurs or an invalid option is encountered.
 PATH=$(/usr/bin/getconf PATH || /bin/kill $$)
+```
+
+## set (builtin)
+[Debian Manpages - Wheezy - sh - #Builtins](https://manpages.debian.org/wheezy/dash/sh.1.en.html#Builtins)  
+[Debian Manpages - Wheezy - sh - #Argument List Processing](https://manpages.debian.org/wheezy/dash/sh.1.en.html#Argument_List_Processing)  
+```
+set -o errexit
+set -o nounset
+```
+
+## trap (builtin)
+[Debian Manpages - Wheezy - sh - #Builtins](https://manpages.debian.org/wheezy/dash/sh.1.en.html#Builtins)  
+[GNU - Software - libc - Documentation - 25.2 Standard Signals](https://www.gnu.org/software/libc/manual/html_node/Standard-Signals.html)  
+[Sourceware - gitweb - glibc - bits/signum-generic.h](https://sourceware.org/git/?p=glibc.git;a=blob;f=bits/signum-generic.h;hb=HEAD)  
+```
+trap on_exit EXIT
+
+on_exit () {
+	local EXIT_STATUS=${?}
+
+	if [ ${EXIT_STATUS} -ne 0 ]
+	then
+		:
+	fi
+
+	exit ${EXIT_STATUS}
+}
 ```
 
