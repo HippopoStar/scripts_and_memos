@@ -10,7 +10,7 @@
 
 ## getconf
 [Debian Manpages - getconf](https://manpages.debian.org/bookworm/libc-bin/getconf.1.en.html)  
-[Debian Manpages - sh (#special\ parameters)](https://manpages.debian.org/bookworm/dash/sh.1.en.html#Special_Parameters)  
+[Debian Manpages - sh (#special\_parameters)](https://manpages.debian.org/bookworm/dash/sh.1.en.html#Special_Parameters)  
 ```
 PATH=$(/usr/bin/getconf PATH || /bin/kill $$)
 ```
@@ -55,5 +55,46 @@ x-terminal-emulator -e 'nc -l -p 1234'
 		sleep 2
 	done
 ) | nc localhost 1234
+```
+
+## nohup
+[Debian Manpages - nohup](https://manpages.debian.org/bookworm/coreutils/nohup.1.en.html)  
+
+## tmux
+[Debian Manpages - tmux](https://manpages.debian.org/bookworm/tmux/tmux.1.en.html)  
+```
+tmux new [-s session-name]
+# C-b d (Detach the current client)
+tmux ls
+tmux attach [-t target-session]
+
+# C-b % (Split the current pane into two, left and right)
+# C-b " (Split the current pane into two, top and bottom)
+
+# C-b c (Create a new window)
+# C-b w (Choose the current window interactively)
+# C-b p (Change to the previous window)
+# C-b n (Change to the next window)
+
+# C-b ? (List all key bindings)
+```
+[Debian Manpages - screen](https://manpages.debian.org/bookworm/screen/screen.1.en.html)  
+```
+screen [-S sessionname]
+# C-a d (detach: Detach screen from this terminal)
+screen -ls
+screen -r [pid.tty.host]
+
+# C-a S (split: Split the current region horizontally into two new ones)
+# C-a | (split -v: Split the current region vertically into two new ones)
+# C-a X (remove: Kill the current region)
+
+# C-a c (screen: Create a new window with a shell and switch to that window)
+# C-a " (windowlist -b: Present a list of all windows for selection)
+# C-a p (prev: Switch to the previous window)
+# C-a n (next: Switch to the next window)
+# C-a \ (quit: Kill all windows and terminate screen)
+
+# C-a ? (help: Show key bindings)
 ```
 
