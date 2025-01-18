@@ -2,6 +2,58 @@
 ===== BOURNE SHELL  
 ===== ===== ===== ===== =====  
 
+```
+man sh
+```
+Table of Contents  
+[NAME](https://manpages.debian.org/bookworm/dash/sh.1.en.html#NAME)  
+[DESCRIPTION](https://manpages.debian.org/bookworm/dash/sh.1.en.html#DESCRIPTION)  
+- [Overview](https://manpages.debian.org/bookworm/dash/sh.1.en.html#Overview)  
+- [Invocation](https://manpages.debian.org/bookworm/dash/sh.1.en.html#Invocation)  
+- [Argument List Processing](https://manpages.debian.org/bookworm/dash/sh.1.en.html#Argument_List_Processing)  
+- [Lexical Structure](https://manpages.debian.org/bookworm/dash/sh.1.en.html#Lexical_Structure)  
+- [Quoting](https://manpages.debian.org/bookworm/dash/sh.1.en.html#Quoting)  
+- [Backslash](https://manpages.debian.org/bookworm/dash/sh.1.en.html#Backslash)  
+- [Single Quotes](https://manpages.debian.org/bookworm/dash/sh.1.en.html#Single_Quotes)  
+- [Double Quotes](https://manpages.debian.org/bookworm/dash/sh.1.en.html#Double_Quotes)  
+- [Reserved Words](https://manpages.debian.org/bookworm/dash/sh.1.en.html#Reserved_Words)  
+- [Aliases](https://manpages.debian.org/bookworm/dash/sh.1.en.html#Aliases)  
+- [Commands](https://manpages.debian.org/bookworm/dash/sh.1.en.html#Commands)  
+- [Simple Commands](https://manpages.debian.org/bookworm/dash/sh.1.en.html#Simple_Commands)  
+- [Redirections](https://manpages.debian.org/bookworm/dash/sh.1.en.html#Redirections)  
+- [Search and Execution](https://manpages.debian.org/bookworm/dash/sh.1.en.html#Search_and_Execution)  
+- [Path Search](https://manpages.debian.org/bookworm/dash/sh.1.en.html#Path_Search)  
+- [Command Exit Status](https://manpages.debian.org/bookworm/dash/sh.1.en.html#Command_Exit_Status)  
+- [Complex Commands](https://manpages.debian.org/bookworm/dash/sh.1.en.html#Complex_Commands)  
+- [Pipelines](https://manpages.debian.org/bookworm/dash/sh.1.en.html#Pipelines)  
+- [Background Commands – &](https://manpages.debian.org/bookworm/dash/sh.1.en.html#Background_Commands_–_&)  
+- [Lists – Generally Speaking](https://manpages.debian.org/bookworm/dash/sh.1.en.html#Lists_–_Generally_Speaking)  
+- [Short-Circuit List Operators](https://manpages.debian.org/bookworm/dash/sh.1.en.html#Short-Circuit_List_Operators)  
+- [Flow-Control Constructs – if, while, for, case](https://manpages.debian.org/bookworm/dash/sh.1.en.html#Flow-Control_Constructs_–_if,_while,_for,_case)  
+- [Grouping Commands Together](https://manpages.debian.org/bookworm/dash/sh.1.en.html#Grouping_Commands_Together)  
+- [Functions](https://manpages.debian.org/bookworm/dash/sh.1.en.html#Functions)  
+- [Variables and Parameters](https://manpages.debian.org/bookworm/dash/sh.1.en.html#Variables_and_Parameters)  
+- [Positional Parameters](https://manpages.debian.org/bookworm/dash/sh.1.en.html#Positional_Parameters)  
+- [Special Parameters](https://manpages.debian.org/bookworm/dash/sh.1.en.html#Special_Parameters)  
+- [Word Expansions](https://manpages.debian.org/bookworm/dash/sh.1.en.html#Word_Expansions)  
+- [Tilde Expansion (substituting a user's home directory)](https://manpages.debian.org/bookworm/dash/sh.1.en.html#Tilde_Expansion_%28substituting_a_user's_home_directory%29)  
+- [Parameter Expansion](https://manpages.debian.org/bookworm/dash/sh.1.en.html#Parameter_Expansion)  
+- [Command Substitution](https://manpages.debian.org/bookworm/dash/sh.1.en.html#Command_Substitution)  
+- [Arithmetic Expansion](https://manpages.debian.org/bookworm/dash/sh.1.en.html#Arithmetic_Expansion)  
+- [White Space Splitting (Field Splitting)](https://manpages.debian.org/bookworm/dash/sh.1.en.html#White_Space_Splitting_%28Field_Splitting%29)  
+- [Pathname Expansion (File Name Generation)](https://manpages.debian.org/bookworm/dash/sh.1.en.html#Pathname_Expansion_%28File_Name_Generation%29)  
+- [Shell Patterns](https://manpages.debian.org/bookworm/dash/sh.1.en.html#Shell_Patterns)  
+- [Builtins](https://manpages.debian.org/bookworm/dash/sh.1.en.html#Builtins)  
+- [Command Line Editing](https://manpages.debian.org/bookworm/dash/sh.1.en.html#Command_Line_Editing)  
+[EXIT STATUS](https://manpages.debian.org/bookworm/dash/sh.1.en.html#EXIT_STATUS)  
+[ENVIRONMENT](https://manpages.debian.org/bookworm/dash/sh.1.en.html#ENVIRONMENT)  
+[FILES](https://manpages.debian.org/bookworm/dash/sh.1.en.html#FILES)  
+[SEE ALSO](https://manpages.debian.org/bookworm/dash/sh.1.en.html#SEE_ALSO)  
+[HISTORY](https://manpages.debian.org/bookworm/dash/sh.1.en.html#HISTORY)  
+[BUGS](https://manpages.debian.org/bookworm/dash/sh.1.en.html#BUGS)  
+
+
+
 ## dialog
 [Debian Manpages - dialog (#whiptail)](https://manpages.debian.org/bookworm/dialog/dialog.1.en.html#WHIPTAIL)  
 
