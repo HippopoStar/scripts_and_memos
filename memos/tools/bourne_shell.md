@@ -42,6 +42,52 @@ on_exit () {
 }
 ```
 
+## Argument processing
+```
+G_OPTION_NAME=
+
+main () {
+	while [ ${#} -gt 0 ]
+	do
+		case "${1}" in
+			--option-name=*)
+				G_OPTION_NAME="${1#--option-name=}"
+				;;
+		[...]
+			*)
+				echo "Unknown option: ${1}" >&2
+				exit 1
+				;;
+		esac
+		shift
+	done
+}
+
+main "${@}"
+```
+
+## Data flow
+```
+tail -f /var/log/syslog
+```
+```
+CURL_TRACE_FILE=<filename>
+DATA_STREAM_URL=<url>
+
+curl --trace-ascii "${CURL_TRACE_FILE}" -X GET "${DATA_STREAM_URL}" &
+LAST_PID=${!}
+tail -f "${CURL_TRACE_FILE}" --pid=${LAST_PID} | grep --line-buffered -e <pattern>
+# <=>
+curl --trace-ascii - -X GET "${DATA_STREAM_URL}" | tee "${CURL_TRACE_FILE}" | grep --line-buffered -e <pattern>
+```
+
+## date
+```
+date '+%F %T%:z'
+date --rfc-3339=seconds
+date '+%Y_%m_%d_%H%M%S'
+```
+
 ## netcat
 [Debian Manpages - x-terminal-emulator](https://manpages.debian.org/bookworm/xterm/x-terminal-emulator.1.en.html)  
 [Debian Manpages - netcat](https://manpages.debian.org/bookworm/netcat-traditional/netcat.1.en.html)  
@@ -93,6 +139,7 @@ screen -r [pid.tty.host]
 # C-a " (windowlist -b: Present a list of all windows for selection)
 # C-a p (prev: Switch to the previous window)
 # C-a n (next: Switch to the next window)
+# C-a k (kill: Destroy current window)
 # C-a \ (quit: Kill all windows and terminate screen)
 
 # C-a ? (help: Show key bindings)
