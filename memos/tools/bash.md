@@ -21,6 +21,7 @@ $> man bash
 - [Compound Commands](https://manpages.debian.org/bookworm/bash/bash.1.en.html#Compound_Commands)
 - [Coprocesses](https://manpages.debian.org/bookworm/bash/bash.1.en.html#Coprocesses)
 - [Shell Function Definitions](https://manpages.debian.org/bookworm/bash/bash.1.en.html#Shell_Function_Definitions)
+
 [COMMENTS](https://manpages.debian.org/bookworm/bash/bash.1.en.html#COMMENTS)  
 [QUOTING](https://manpages.debian.org/bookworm/bash/bash.1.en.html#QUOTING)  
 [PARAMETERS](https://manpages.debian.org/bookworm/bash/bash.1.en.html#PARAMETERS):
@@ -28,6 +29,7 @@ $> man bash
 - [Special Parameters](https://manpages.debian.org/bookworm/bash/bash.1.en.html#Special_Parameters)
 - [Shell Variables](https://manpages.debian.org/bookworm/bash/bash.1.en.html#Shell_Variables)
 - [Arrays](https://manpages.debian.org/bookworm/bash/bash.1.en.html#Arrays)
+
 [EXPANSION](https://manpages.debian.org/bookworm/bash/bash.1.en.html#EXPANSION):
 - [Brace Expansion](https://manpages.debian.org/bookworm/bash/bash.1.en.html#Brace_Expansion)
 - [Tilde Expansion](https://manpages.debian.org/bookworm/bash/bash.1.en.html#Tilde_Expansion)
@@ -38,6 +40,7 @@ $> man bash
 - [Word Splitting](https://manpages.debian.org/bookworm/bash/bash.1.en.html#Word_Splitting)
 - [Pathname Expansion](https://manpages.debian.org/bookworm/bash/bash.1.en.html#Pathname_Expansion)
 - [Quote Removal](https://manpages.debian.org/bookworm/bash/bash.1.en.html#Quote_Removal)
+
 [REDIRECTION](https://manpages.debian.org/bookworm/bash/bash.1.en.html#REDIRECTION):
 - [Redirecting Input](https://manpages.debian.org/bookworm/bash/bash.1.en.html#Redirecting_Input)
 - [Redirecting Output](https://manpages.debian.org/bookworm/bash/bash.1.en.html#Redirecting_Output)
@@ -49,6 +52,7 @@ $> man bash
 - [Duplicating File Descriptors](https://manpages.debian.org/bookworm/bash/bash.1.en.html#Duplicating_File_Descriptors)
 - [Moving File Descriptors](https://manpages.debian.org/bookworm/bash/bash.1.en.html#Moving_File_Descriptors)
 - [Opening File Descriptors for Reading and Writing](https://manpages.debian.org/bookworm/bash/bash.1.en.html#Opening_File_Descriptors_for_Reading_and_Writing)
+
 [ALIASES](https://manpages.debian.org/bookworm/bash/bash.1.en.html#ALIASES)  
 [FUNCTIONS](https://manpages.debian.org/bookworm/bash/bash.1.en.html#FUNCTIONS)  
 [ARITHMETIC EVALUATION](https://manpages.debian.org/bookworm/bash/bash.1.en.html#ARITHMETIC_EVALUATION)  
@@ -78,11 +82,13 @@ $> man bash
 - [Keyboard Macros](https://manpages.debian.org/bookworm/bash/bash.1.en.html#Keyboard_Macros)
 - [Miscellaneous](https://manpages.debian.org/bookworm/bash/bash.1.en.html#Miscellaneous)
 - [Programmable Completion](https://manpages.debian.org/bookworm/bash/bash.1.en.html#Programmable_Completion)
+
 [HISTORY](https://manpages.debian.org/bookworm/bash/bash.1.en.html#HISTORY)  
 [HISTORY EXPANSION](https://manpages.debian.org/bookworm/bash/bash.1.en.html#HISTORY_EXPANSION):
 - [Event Designators](https://manpages.debian.org/bookworm/bash/bash.1.en.html#Event_Designators)
 - [Word Designators](https://manpages.debian.org/bookworm/bash/bash.1.en.html#Word_Designators)
 - [Modifiers](https://manpages.debian.org/bookworm/bash/bash.1.en.html#Modifiers)
+
 [SHELL BUILTIN COMMANDS](https://manpages.debian.org/bookworm/bash/bash.1.en.html#SHELL_BUILTIN_COMMANDS)  
 [SHELL COMPATIBILITY MODE](https://manpages.debian.org/bookworm/bash/bash.1.en.html#SHELL_COMPATIBILITY_MODE)  
 [RESTRICTED SHELL](https://manpages.debian.org/bookworm/bash/bash.1.en.html#RESTRICTED_SHELL)  
