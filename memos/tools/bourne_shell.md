@@ -54,11 +54,25 @@ Table of Contents
 
 
 
-## dialog
-[Debian Manpages - dialog (#whiptail)](https://manpages.debian.org/bookworm/dialog/dialog.1.en.html#WHIPTAIL)  
-
 ## notify-send
 [Debian Manpages - notify-send](https://manpages.debian.org/bookworm/libnotify-bin/notify-send.1.en.html)  
+
+## dialog
+[Debian Manpages - dialog](https://manpages.debian.org/bookworm/dialog/dialog.1.en.html)  
+[Debian Manpages - whiptail](https://manpages.debian.org/bookworm/whiptail/whiptail.1.en.html)  
+[Debian Manpages - xmessage](https://manpages.debian.org/bookworm/x11-utils/xmessage.1.en.html)  
+[Debian Manpages - (3) ncurses](https://manpages.debian.org/bookworm/ncurses-doc/ncurses.3ncurses.en.html)  
+[Debian Manpages - (5) terminfo](https://manpages.debian.org/bookworm/ncurses-bin/terminfo.5.en.html)  
+```
+# Ctrl+Alt+F<3-6> to enter console
+whiptail --msgbox 'Hello World!' 20 60
+```
+
+## nmtui
+[Debian Manpages - nmtui](https://manpages.debian.org/bookworm/network-manager/nmtui.1.en.html)  
+
+## lynx
+[Debian Manpages - www-browser](https://manpages.debian.org/bookworm/lynx/www-browser.1.en.html)  
 
 ## getconf
 [Debian Manpages - getconf](https://manpages.debian.org/bookworm/libc-bin/getconf.1.en.html)  
