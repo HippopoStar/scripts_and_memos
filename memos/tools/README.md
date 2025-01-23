@@ -6,8 +6,8 @@
 ## Getting information about Memory usage, CPU usage & temperature, etc
 [Debian Manpages - (Contents of) lm-sensors](https://manpages.debian.org/bookworm/lm-sensors/index.html)  
 [Debian Manpages - psensor](https://manpages.debian.org/bookworm/psensor/psensor.1.en.html)  
+[Ubuntu Manpages - landscape-sysinfo](https://manpages.ubuntu.com/manpages/noble/man1/landscape-sysinfo.1.html)  
 [Ubuntu Packages - indicator-multiload (Unity Desktop Environment)](https://packages.ubuntu.com/noble/indicator-multiload)  
-[Ubuntu Packages - landscape-sysinfo](https://packages.ubuntu.com/noble/landscape-common)  
 
 [Debian Packages - gnome-shell-extension-manager](https://packages.debian.org/bookworm/gnome/gnome-shell-extension-manager)  
 [Debian Packages - chrome-gnome-shell](https://packages.debian.org/bookworm/gnome/chrome-gnome-shell)  
