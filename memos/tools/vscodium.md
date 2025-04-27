@@ -4,6 +4,9 @@
 
 https://flathub.org/apps/com.vscodium.codium  
 
+Hotkeys:
+- Command Palette: `Ctrl+Shift+P`
+
 [VSCode - Docs - Get Started - User Interface - Settings](https://code.visualstudio.com/docs/getstarted/userinterface#_settings)  
 [VSCode - Docs - Get Started - Settings - Default settings](https://code.visualstudio.com/docs/getstarted/settings#_default-settings)  
 
