@@ -1,0 +1,113 @@
+
+Chain of trust:
+- App Store
+  - Accrescent
+    - AppVerifier
+      - F-Droid
+        - Aurora
+        - Obtainium
+
+
+Applications
+- Accrescent
+  - AppVerifier
+  - Organic Maps
+  - Aves Gallery Libre
+- Obtainium
+  - Native Alpha
+  - Sumire (Japanese Keyboard)
+- Aurora Store
+  - Bitwarden
+  - Olvid
+  - Signal
+  - Beeper
+  - Lichess
+  - Tournesol
+  - Geovelo
+- F-Droid
+  - Sleep Timer
+  - Thunderbird
+  - OsmAnd~
+  - My Brain
+  - NewPipe
+  - Mastodon
+  - QR Scanner
+  - Catima
+  - Aegis Authenticator
+  - Kanji Dojo
+
+
+**Settings**
+
+- Network & internet
+  - Internet
+    - Network preferences
+      - Turn on Wi-Fi automatically: OFF
+  - Private DNS
+    - Private DNS provider hostname: `dns.adguard-dns.com`
+
+- Sound & vibration
+  - Vibration & haptics
+    - Interactive haptics
+      - Keyboard vibration: OFF
+  - Sound patterns
+    - Default notification sound: Selenium
+- Display
+  - Lock display
+    - Lock screen
+      - What to show
+        - Add text on lock screen: "If you happen to find this phone,\nplease call +33 _ __ __ __ __"
+      - When to show
+        - Tap to check phone: Off
+        - Lift to check phone: Off
+    - Screen timeout: 2 minutes
+  - Color
+    - Night Light: ON
+
+- Battery
+  - Battery saver
+    - Turn off at 90%: OFF
+  - Charging optimization
+    - Limit to 80%: ON
+  - Battery percentage: ON
+- System
+  - Keyboard
+    - On-screen keyboard
+      - Keyboard
+        - Preferences
+          - Vibrate on keypress: OFF
+          - Sound on keypress: OFF
+        - Text correction
+          - Auto-correction: OFF
+          - Show correction suggest: OFF
+    - Tools
+      - Spell checker
+        - Use spell checker: OFF
+  - System updates
+    - Permitted networks: Not roaming
+  - Users
+    - Add user
+      - Extended App Permissions: [...]
+      - Google Play Services: [...]
+
+- Security & privacy
+  - Private space
+    - ...
+- Passwords, passkeys & accounts
+  - Preferred service: Bitwarden
+
+
+**Vanadium** (web browser)
+
+- Settings
+  - Basics
+    - Privacy and security
+      - Privacy
+        - Open external links in incognito: ON
+  - Password and Autofill
+    - Password Manager
+      - Save passwords: OFF
+    - Payment methods
+      - Save and fill payment methods: OFF
+    - Addresses and more
+      - Save and fill addresses: OFF

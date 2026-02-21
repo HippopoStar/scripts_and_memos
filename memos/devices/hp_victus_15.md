@@ -4,6 +4,10 @@
 ### System Settings
 
 • Preferences
+  • Applets
+    • Download
+      • [Multi-Core System Monitor](https://cinnamon-spices.linuxmint.com/applets/view/79)
+      • [Sensors Monitor](https://cinnamon-spices.linuxmint.com/applets/view/337)
   • Night Light
     • Enable night light: ☑
 • Hardware
