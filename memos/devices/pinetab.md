@@ -3,7 +3,7 @@
 [GitHub - DanctNIX - Pine64-Arch - releases - 20220729](https://github.com/dreemurrs-embedded/Pine64-Arch/releases/tag/20220729)  
 
 ## Turn on
-[Pine64 Wiki - PineTab - Tips and tricks - Reset](https://wiki.pine64.org/wiki/PineTab#Reset)  
+[Pine64 Wiki - PineTab - Tips and tricks #Reset](https://wiki.pine64.org/wiki/PineTab#Reset)  
 
 ## Tow-Boot
 [Tow-Boot - Devices - pine64-pinetabA64](https://tow-boot.org/devices/pine64-pinetabA64.html)  
