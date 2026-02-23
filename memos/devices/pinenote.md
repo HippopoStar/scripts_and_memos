@@ -11,7 +11,9 @@ sudo parted /dev/mmcblk0 print
 read -ei '6' -p 'Please specify target partition: ' TARGET_PARTITION
 IMAGE_NAME="debian_partition_${TARGET_PARTITION}"
 curl -C - -L -# -O "https://github.com/PNDeb/pinenote-debian-image/releases/download/v20250101_01/${IMAGE_NAME}.img.zst"
+set -o pipefail
 zstdcat "${IMAGE_NAME}.img.zst" | sudo dd of="/dev/mmcblk0p${TARGET_PARTITION}" bs=1M conv=fsync status=progress
+echo "Return value: ${?}"
 ```
 
 ## Batch 2 Factory Image (Debian Trixie) workarounds
