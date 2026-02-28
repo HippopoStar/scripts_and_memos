@@ -45,6 +45,7 @@ sudo ./main
 
 popd
 ```
+Reboot, then:
 ```
 sudo apt-get clean
 sudo apt-get purge ?config-files # Select packages that were removed but not purged
@@ -75,13 +76,13 @@ pushd pinenote_dbus_service
 # Check abbreviated commit hash (83ed018 at the time of writing)
 git log -n 1 --oneline
 # Build project, create package and install
-PINENOTE_DBUS_SERVICE_TAG="v$(
+PINENOTE_DBUS_SERVICE_VERSION=$(
   cargo metadata --no-deps --format-version 1 \
   | jq -r '.["packages"][] | select(.["name"] == "pinenote_dbus_service")["version"]'
-)"
+)
 cargo build
 cargo deb
-sudo dpkg -i ./target/debian/pinenote-dbus-service_${PINENOTE_DBUS_SERVICE_TAG:1}-1_arm64.deb
+sudo dpkg -i ./target/debian/pinenote-dbus-service_${PINENOTE_DBUS_SERVICE_VERSION}-1_arm64.deb
 
 # Leave repository directory
 popd
@@ -100,6 +101,7 @@ pushd pinenote-gnome-extension
 git log -n 1 --oneline
 # Run install script
 ./install.sh
+gnome-extensions enable pnhelper@m-weigand.github.com
 
 # Leave repository directory
 popd
