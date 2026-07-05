@@ -29,7 +29,7 @@ Applications
   - Thunderbird
   - OsmAnd~
   - My Brain
-  - NewPipe
+  - NewPipe ([Faster updates](https://newpipe.net/#download1-fdroid-newpipe-repo))
   - Mastodon
   - QR Scanner
   - Catima
@@ -91,8 +91,12 @@ Applications
       - Google Play Services: [...]
 
 - Security & privacy
-  - Private space
-    - ...
+  - Privacy
+    - Private space
+      - ...
+  - Other settings
+    - More security & privacy
+      - Allow Sensors permission to apps by default: OFF
 - Passwords, passkeys & accounts
   - Preferred service: Bitwarden
 
@@ -111,3 +115,10 @@ Applications
       - Save and fill payment methods: OFF
     - Addresses and more
       - Save and fill addresses: OFF
+
+**OneWheel**
+In order to work, OneWheel app requires:
+- "Google Play Services" (with "Networks" enabled)
+- "Google Play Store" (with "Notifications" enabled)
+- "Nearby devices" enabled (unavailable in Private Space)
+
