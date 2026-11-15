@@ -18,6 +18,7 @@ Applications
   - Sumire (Japanese Keyboard)
 - Aurora Store
   - Bitwarden
+  - Bitchat
   - Olvid
   - Signal
   - Beeper
@@ -26,10 +27,14 @@ Applications
   - Geovelo
 - F-Droid
   - Sleep Timer
+  - Material Files
+  - LibreOffice Viewer
+  - VLC
   - Thunderbird
   - OsmAnd~
   - My Brain
   - NewPipe ([Faster updates](https://newpipe.net/#download1-fdroid-newpipe-repo))
+  - Briar ([Faster updates](https://briarproject.org/fdroid.html))
   - Mastodon
   - QR Scanner
   - Catima
@@ -115,6 +120,7 @@ Applications
       - Save and fill payment methods: OFF
     - Addresses and more
       - Save and fill addresses: OFF
+
 
 **OneWheel**
 In order to work, OneWheel app requires:
