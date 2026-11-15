@@ -11,10 +11,10 @@ on_exit() {
     local EXIT_STATUS=${?}
     local -
     set +eu
-    trap - EXIT
+    trap - EXIT INT TERM
 
     if [ \( -n "${TMP_DIR}" \) -a \( -d "${TMP_DIR}" \) ]; then
-        rm -d "${TMP_DIR}"
+        rm -rf "${TMP_DIR:?}"
     fi
     if [ ${EXIT_STATUS} -ne 0 ]; then
         echo 'An error occurred.' >&2
@@ -22,7 +22,8 @@ on_exit() {
     fi
 }
 
-trap on_exit EXIT
+# Signal descriptions: https://sourceware.org/git/?p=glibc.git;a=blob;f=bits/signum-generic.h;hb=HEAD
+trap on_exit EXIT INT TERM
 
 TMP_DIR="$(mktemp -d /tmp/tmp.XXXXXX)"
 
@@ -33,7 +34,9 @@ usage: ${0} <wrapper_name> <command_path> [arguments...]
 [SYNOPSIS]
     This script generates a wrapper that enables a non-privileged user to run a provided command as root.
     Write permissions for this script, the generated wrapper, and the underlying executable(s) must be restricted to the root user.
-    The designated user only needs execute permissions on the generated wrapper.
+    Granting execute permission to the designated user can be achieved either by:
+    - using "chmod o+x" (simpler, though anyone able to reach the wrapper can run it)
+    - using "chown root:<dedicated_group>" + "chmod u+s" (safer; note that chown clears the SUID bit)
 
 [DISCLAIMER]
     - <command_path> must be provided as an absolute path.
@@ -87,15 +90,15 @@ int main(void)
 }
 _EOF
 
-    gcc -o "${BINARY_NAME}.out" -Wall -Wextra -Werror "${TMP_DIR}/${BINARY_NAME}.c"
-    rm "${TMP_DIR}/${BINARY_NAME}.c"
-    chmod u+s "${BINARY_NAME}.out"
+    gcc -o "${TMP_DIR}/${BINARY_NAME}.out" -Wall -Wextra -Werror "${TMP_DIR}/${BINARY_NAME}.c"
+    install -o root -g root -m 4710 "${TMP_DIR}/${BINARY_NAME}.out" "./${BINARY_NAME}.out"
+    rm "${TMP_DIR}/${BINARY_NAME}.c" "${TMP_DIR}/${BINARY_NAME}.out"
 }
 
 main() {
     if [ ${#} -lt 2 ]; then
         usage
-    elif [ "x$(id -u):$(id -g)" != "x0:0" ]; then
+    elif [ "$(id -u):$(id -g)" != '0:0' ]; then
         echo 'This script requires root privileges.' >&2
     else
         generate_executable "${@}"
